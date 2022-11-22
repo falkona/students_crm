@@ -3,6 +3,8 @@ package students;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
+import static students.Constants.YEAR_SECONDS;
+
 public abstract class Student {
 
     protected String fullName;
@@ -43,7 +45,7 @@ public abstract class Student {
     public void setDirectionPrefix(String direction) { this.directionPrefix = direction; }
 
     protected String getYearOfStudy() {
-        return Long.toString(1 + (LocalDateTime.now().toEpochSecond(ZoneOffset.UTC) - this.enrollDate) / 31536000);
+        return Long.toString(1 + (LocalDateTime.now().toEpochSecond(ZoneOffset.UTC) - this.enrollDate) / YEAR_SECONDS);
     }
 
 }
