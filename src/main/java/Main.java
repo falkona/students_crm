@@ -1,20 +1,42 @@
 import carsharing.Car;
 import carsharing.Driver;
 import postoffice.Client;
+import sportsmen.Sportsman;
 import students.Bachelor;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main (String[] args) {
-        //workWithStudents();
-        //workWithCars();
-        workWithPostOffice();
+    //"Задача 5.8");
+    /* Дано натуральное число. Определить
+    1. Количество цифр 3 в нем
+    2. Сколько раз в нем встречается последняя цифра
+    3. Количество четных цифр в нем
+    4. Сумму его цифр, больших пяти
+    5. Произведение его цифр, больших семи
+    6. Сколько раз в нем встречаются цифры 0 и 5 (всего)*/
+
+        int number = 12;
+        String numberString = Integer.toString(number); // "123456"
+        int[] numberArray = new int[numberString.length()];
+        for (int i = 0; i < numberString.length(); i++) {
+            numberArray[i] = Character.getNumericValue(numberString.charAt(i));
+        }
+
+        //1. Количество цифр 3 в нем
+        int countOf3 = 0;
+        for (int j = 0; j < numberArray.length; j++) {
+            if (numberArray[j] == 3) {
+                countOf3++;
+            }
+        }
+        System.out.println(countOf3);
+
     }
 
     public static void workWithStudents() {
@@ -71,6 +93,29 @@ public class Main {
         for (Client client : clients) {
             System.out.println(client);
         }
+    }
+
+    public static void workWithScanner() {
+        Scanner sc = new Scanner(System.in);
+        int n = 2;
+        int sum = 0;
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        for(int i = a; i <= b; i++) {
+            System.out.print(a + " ");
+            System.out.println("===============");
+            System.out.println("i = " + i);
+            System.out.println("Сумма до вычисления = " + sum);
+            sum = sum + i;
+            System.out.println("Сумма после вычисления = " + sum);
+        }
+
+        System.out.println(sum);
+
+
+        System.out.println("sum = " + sum);
+
     }
 
 }
